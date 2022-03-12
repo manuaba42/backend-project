@@ -47,8 +47,9 @@ composer require tymon/jwt-auth
 ```
 php artisan vendor:publish
 ```
-```
+
 pilih 'Tymon\JWTAuth\Providers\LaravelServiceProvider'
+
 ```
 php artisan jwt:secret
 ```
