@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Repository\MotorRepository;
+use MongoDB\BSON\ObjectID;
 
 class MotorService
 {
@@ -65,5 +66,16 @@ class MotorService
                 'error' => 0
             ];
         }
+    }
+
+    public function getSoldMotor()
+    {
+        return (new MotorRepository)->getSoldMotor();
+    }
+
+    public function getSingleData(?string $id)
+    {
+        $parsedId = new ObjectID($id);
+        return (new MotorRepository())->getSingleData($parsedId);
     }
 }

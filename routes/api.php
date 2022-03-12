@@ -39,9 +39,13 @@ Route::group([
     Route::post('createMobil',[MobilController::class, 'store']);
     Route::put('updateMobil',[MobilController::class, 'update']);
     Route::delete('deleteMobil',[MobilController::class, 'destroy']);
+    Route::get('soldMobil',[MobilController::class, 'sold']);
+    Route::get('detailMobil/{id}',[MobilController::class, 'getDetail']);
     Route::post('createMotor',[MotorController::class, 'store']);
     Route::put('updateMotor',[MotorController::class, 'update']);
     Route::delete('deleteMotor',[MotorController::class, 'destroy']);
+    Route::get('soldMotor',[MotorController::class, 'sold']);
+    Route::get('detailMotor/{id}',[MotorController::class, 'getDetail']);
 });
 
 

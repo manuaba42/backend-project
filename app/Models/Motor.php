@@ -4,19 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
+use App\Models\Kendaraan;
 
-class Motor extends Eloquent
+class Motor extends Kendaraan
 {
     protected $connection = 'mongodb';
     protected $collection = 'motors';
     
     protected $fillable = [
-        'tahun_keluaran',
-        'warna',
-        'harga',
         'mesin',
         'tipe_suspensi',
         'tipe_transmisi',
-        'stok'
     ];
 }

@@ -3,7 +3,7 @@
 namespace App\Service;
 
 use App\Repository\MobilRepository;
-
+use MongoDB\BSON\ObjectID;
 class MobilService
 {
     public function storeMobil($mobil)
@@ -65,5 +65,16 @@ class MobilService
                 'error' => 0
             ];
         }
+    }
+
+    public function getSoldMobil()
+    {
+        return (new MobilRepository)->getSoldMobil();
+    }
+
+    public function getSingleData(?string $id)
+    {
+        $parsedId = new ObjectID($id);
+        return (new MobilRepository())->getSingleData($parsedId);
     }
 }

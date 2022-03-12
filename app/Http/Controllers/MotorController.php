@@ -61,7 +61,7 @@ class MotorController extends Controller
 
     public function buy(Request $request)
     {
-        // update mobil
+        // buy function will change status to sold
         $mobilData = $request->all();
 
         $response = (new MotorService())->buyMotor($mobilData);
@@ -71,5 +71,21 @@ class MotorController extends Controller
         }
 
         return response()->json(['status'=>200, 'message'=>'Buy 1 mobil, status change to Sold'],200);
+    }
+
+    public function sold()
+    {
+        // get all sold motor
+        $response = (new MotorService)->getSoldMotor();
+
+        return response()->json(['status'=>200, 'message'=>$response],200);
+    }
+
+    public function getDetail(string $id)
+    {       
+        // get detail motor (laporan per kendaraan)
+        $response = (new MotorService())->getSingleData($id);
+        
+        return $response;
     }
 }

@@ -54,4 +54,41 @@ pilih 'Tymon\JWTAuth\Providers\LaravelServiceProvider'
 php artisan jwt:secret
 ```
 
-![ScreenShot](/Screenshots/1.png)
+## Auth
+### Login Function
+2 roles in login, admin & user
+![ScreenShot](/Screenshots/login.png)
+
+### Account Profile Function
+![ScreenShot](/Screenshots/profile.png)
+
+### Logout Function
+![ScreenShot](/Screenshots/logout.png)
+
+
+## Admin Only (admin login require)
+### Create Function
+![ScreenShot](/Screenshots/create.png)
+
+### Update Function
+![ScreenShot](/Screenshots/update.png)
+
+### Delete Function
+![ScreenShot](/Screenshots/delete.png)
+
+### Sold Function
+Get all item where status is 'Sold' (penjualan kendaraan)
+![ScreenShot](/Screenshots/sold.png)
+
+### Detail Function
+Get item's detail (laporan penjualan per kendaraan)
+![ScreenShot](/Screenshots/detail.png)
+
+## Users
+### Index (check stok availability)
+List item's stock
+![ScreenShot](/Screenshots/stok.png)
+
+### Buy Function
+Change item's status from 'Available' to 'Sold'
+![ScreenShot](/Screenshots/buy.png)

@@ -11,10 +11,10 @@ class MobilController extends Controller
 
     public function index()
     {
-        // get all mobil
+        // get all available mobil (lihat stok kendaraan)
         $response = (new MobilService)->getMobil();
 
-        return response()->json(['status'=>200, 'message'=>$response],200);
+        return response()->json(['status'=>200, 'message'=> $response],200);
     }
 
     public function store(Request $request)
@@ -62,7 +62,7 @@ class MobilController extends Controller
 
     public function buy(Request $request)
     {
-        // update mobil
+        // buy function will change status to sold
         $mobilData = $request->all();
 
         $response = (new MobilService())->buyMobil($mobilData);
@@ -72,5 +72,21 @@ class MobilController extends Controller
         }
 
         return response()->json(['status'=>201, 'message'=>'Buy 1 mobil, status change to Sold'],201);
+    }
+
+    public function sold()
+    {
+        // get all sold mobil (laporan penjualan kendaraan)
+        $response = (new MobilService)->getSoldMobil();
+
+        return response()->json(['status'=>200, 'message'=>$response],200);
+    }
+
+    public function getDetail(string $id)
+    {       
+        // get detail mobil (laporan per kendaraan)
+        $response = (new MobilService())->getSingleData($id);
+        
+        return $response;
     }
 }

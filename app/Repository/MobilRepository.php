@@ -16,7 +16,7 @@ class MobilRepository
             $newMobil->mesin = $mobil['mesin'];
             $newMobil->kapasitas_penumpang = $mobil['kapasitas_penumpang'];
             $newMobil->tipe = $mobil['tipe'];
-            $newMobil->status = 'Avaiable';
+            $newMobil->status = 'Available';
             $newMobil->save();
 
             return 0;
@@ -27,7 +27,7 @@ class MobilRepository
 
     public function getAll()
     {
-        return Mobil::all();
+        return Mobil::where('status', 'Available')->get();
     }
 
     public function updateMobil(array $mobil)
@@ -75,6 +75,16 @@ class MobilRepository
         } catch (\Throwable $th) {
             return 1;
         }
+    }
+
+    public function getSoldMobil()
+    {
+        return Mobil::where('status', 'Sold')->get();
+    }
+
+    public function getSingleData(object $id)
+    {
+        return Mobil::where('_id', $id)->get() ?? [];
     }
 
 }

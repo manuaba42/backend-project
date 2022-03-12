@@ -16,7 +16,7 @@ class MotorRepository
             $newMotor->mesin = $motor['mesin'];
             $newMotor->tipe_suspensi = $motor['tipe_suspensi'];
             $newMotor->tipe_transmisi = $motor['tipe_transmisi'];
-            $newMotor->stok = $motor['stok'];
+            $newMotor->status = "Available";
             $newMotor->save();
 
             return 0;
@@ -27,7 +27,7 @@ class MotorRepository
 
     public function getAll()
     {
-        return Motor::all();
+        return Motor::where('status', 'Available')->get();
     }
 
     public function updatemotor(array $motor)
@@ -40,7 +40,7 @@ class MotorRepository
             $newMotor->mesin = $motor['mesin'] ?? $newMotor->mesin;
             $newMotor->tipe_suspensi = $motor['tipe_suspensi'] ?? $newMotor->tipe_suspensi;
             $newMotor->tipe_transmisi = $motor['tipe_transmisi'] ?? $newMotor->tipe_transmisi;
-            $newMotor->stok = $motor['stok'] ?? $newMotor->stok;
+            $newMotor->status = $motor['status'] ?? $newMotor->status;
             $newMotor->save();
 
             return 0;
@@ -75,5 +75,15 @@ class MotorRepository
         } catch (\Throwable $th) {
             return 1;
         }
+    }
+
+    public function getSoldMotor()
+    {
+        return Motor::where('status', 'Sold')->get();
+    }
+
+    public function getSingleData(object $id)
+    {
+        return Motor::where('_id', $id)->get() ?? [];
     }
 }
