@@ -15,6 +15,7 @@ composer require jenssegers/mongodb
 ### add in config/app.php
 Jenssegers\Mongodb\MongodbServiceProvider::class,
 ### add in config/database.php
+```
 'mongodb' => [
     'driver' => 'mongodb',
     'host' => env('DB_HOST', '127.0.0.1'),
@@ -29,6 +30,7 @@ Jenssegers\Mongodb\MongodbServiceProvider::class,
         'database' => env('DB_AUTHENTICATION_DATABASE', 'admin'), // required with Mongo 3+
     ],
 ],
+```
 
 
 ## Setup JWT
