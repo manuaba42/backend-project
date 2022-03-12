@@ -53,3 +53,5 @@ pilih 'Tymon\JWTAuth\Providers\LaravelServiceProvider'
 ```
 php artisan jwt:secret
 ```
+
+![ScreenShot](/Screenshots/1.png)
