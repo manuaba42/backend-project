@@ -90,5 +90,5 @@ List item's stock
 ![ScreenShot](/Screenshots/stok.png)
 
 ### Buy Function
-Change item's status from 'Available' to 'Sold'
+Change item's status from 'Available' to 'Sold' 
 ![ScreenShot](/Screenshots/buy.png)
