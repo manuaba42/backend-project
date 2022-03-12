@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MobilController;
+use App\Http\Controllers\MotorController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -34,13 +36,21 @@ Route::group([
     'prefix'=>'admin',
 ], function($router){
     Route::post('home',[AdminController::class, 'home']);
-    
+    Route::post('createMobil',[MobilController::class, 'store']);
+    Route::put('updateMobil',[MobilController::class, 'update']);
+    Route::delete('deleteMobil',[MobilController::class, 'destroy']);
+    Route::post('createMotor',[MotorController::class, 'store']);
+    Route::put('updateMotor',[MotorController::class, 'update']);
+    Route::delete('deleteMotor',[MotorController::class, 'destroy']);
 });
 
+
 Route::group([
-    'middleware'=>'auth.role:admin,user',
-    'prefix'=>'vehicle',
+    'middleware'=>'api',
+    'prefix'=>'/',
 ], function($router){
-    Route::post('mobil',[AuthController::class, 'login']);
-    Route::post('motor',[AuthController::class, 'profile']);
+    Route::get('mobil',[MobilController::class, 'index']);
+    Route::put('buymobil',[MobilController::class, 'buy']);
+    Route::get('motor',[MotorController::class, 'index']);
+    Route::put('buymotor',[MotorController::class, 'buy']);
 });
