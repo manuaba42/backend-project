@@ -53,6 +53,10 @@ pilih 'Tymon\JWTAuth\Providers\LaravelServiceProvider'
 ```
 php artisan jwt:secret
 ```
+### Unit Testing (db seeder)
+```
+php artisan db:seed
+```
 
 ## Auth
 ### Login Function
