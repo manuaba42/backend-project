@@ -1,19 +1,26 @@
 ## Create Laravel Project
-
+```
 composer create-project laravel/laravel=8.0 backend-project
-
+```
 ## env
-
+```
 cp .env.example .env
+```
+```
 php artisan key:generate
+```
+```
 npm install
+```
 
 ## Setup Mongodb
-
+```
 composer require jenssegers/mongodb
-
+```
 ### add in config/app.php
+```
 Jenssegers\Mongodb\MongodbServiceProvider::class,
+```
 ### add in config/database.php
 ```
 'mongodb' => [
@@ -34,10 +41,14 @@ Jenssegers\Mongodb\MongodbServiceProvider::class,
 
 
 ## Setup JWT
+```
 composer require tymon/jwt-auth
-
+```
+```
 php artisan vendor:publish
-
+```
+```
 pilih 'Tymon\JWTAuth\Providers\LaravelServiceProvider'
-
+```
 php artisan jwt:secret
+```
